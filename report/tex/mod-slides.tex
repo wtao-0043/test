@@ -1,0 +1,293 @@
+%
+% %TODO: This is the place that you need to revise.
+%
+
+\section{Background and Motivation}
+
+%=================================================================
+%%  
+\begin{slide}%[toc=,bm=]
+{Targeted Venue}
+	\twotonebox{\faHandORight}{\parbox{.96\textwidth}
+{  
+Select the list of targeted \emph{conferences} and \emph{journals},
+based on the \emph{contribution} and 
+potential \emph{impact} of the research work~\cite{ZLMLY20J04}
+}} 
+	
+\onslide*{2-3}{
+\begin{proof}[Notes]
+\begin{itemize}
+\item<2-> 
+Stick to a small set of \emph{conferences} and \emph{journals}:
+	\begin{description}
+	\item[Conferences]<2->
+	No more than two in each tier:
+	\begin{itemize}
+	\item AAAI, IJCAI, UAI, ICLR, ICML, NeurIPS, KDD, CVPR, S\&P, NDSS
+	\item ECAI, ACML, ECML/PKDD, ICDM, SDM, CIKM, ESORICS, ACSAC
+	\item PAKDD, KSEM, PRICAI, IJCNN
+	\end{itemize}
+	
+	\item[Journals]<2->
+	No more than two in each tier:
+	\begin{itemize}
+	\item TIFS, PAMI, TPDS, AIJ, MLJ, JMLR, JAIR
+	\item TKDE, TFS, TII, TNNLS, TC, PR
+	\item EWSA, KAIS, FGCS
+	\end{itemize}	
+	\end{description}
+
+\item<3->
+Read some recent papers in the selected venues,
+and be familiar with their writing \emph{style}, 
+\emph{length} and paper \emph{structure}.
+\end{itemize}
+\end{proof}
+}
+
+\onslide*{4-}{
+\begin{proof}[Notes]
+\begin{itemize}
+\item<4-> 
+Never ever \emph{double submission}!
+	\begin{itemize}
+	\item<5->
+	\emph{Double submission} may lead to \emph{double publication},
+	and it is \emph{unethical}.
+	
+	\item<6->
+	The same idea should not be published twice in journals.
+	\end{itemize}
+	
+\item<7->
+Research work published in conferences,
+can be extended for journals.
+\begin{itemize}
+\item<8->
+Typically the conference paper needs to be extended for \SI{30}{\percent}.
+\end{itemize}
+
+\item<9->
+\faMagic { } \textsc{TULIP-Lab} suggested practise:
+\begin{itemize}
+\item<10->
+Complete the full draft, 
+and shrink down \SI{30}{\percent} for conference submission;
+
+\item<11->
+Once accepted,
+submit the full version to journal.
+\end{itemize}
+\end{itemize}
+\end{proof}
+}
+
+\end{slide}
+%%
+%=================================================================
+\begin{note}
+	TBA
+\end{note}
+%%
+%=================================================================
+
+
+\section{Method}
+
+%=================================================================
+%%  
+\begin{slide}%[toc=,bm=]
+	{Non-Private SGD}	
+		\begin{tikzpicture}[transform shape, rotate=0]
+		\node [flipbox] (box) {%
+			\begin{minipage}[t!]{\textwidth} 
+%			\footnotesize 
+				\begin{algorithm}[H]
+				  	\SetKwProg{Fn}{function}{\{}{\}}
+				 	\SetKwFunction{SGD}{StochasticGradientDescent}%
+				 	\SetKwFunction{UNI}{Uniform}%
+
+				\Fn(\tcp*[f]{The \emph{Stochastic Gradient Descent} Optimizer})
+				{\SGD{$D = \{\vec{x}, y\}$}}
+				{
+ 				    \KwIn{database $D$, $\epsilon$, $\delta$,
+ 				    and the loss function $L_{D,f}(h)$.}
+					\KwOut{$\omega^*$}
+					
+					$\omega_0 = 0$ \;
+					\For{$i \leftarrow 1$ \KwTo $T$}{
+					$i_t \sim $ \UNI{$1, \cdots, n$}
+					\tcp*[f]{select a random data example}\;
+					$g_t = \bigtriangledown 
+						l(\omega_{t-1}, (\vec{x}_{i_t}, y_{i_t})) 
+						+ \lambda\bigtriangledown R(\omega_{t-1})$ \;
+					$\omega_{t} = \prod_{\omega}(\omega_{t-1} - \eta_t g_t)$\;
+					\tcp*[f]{projection onto the convex feasible set $\omega$}\;
+					}
+					
+					\KwRet{$\omega^* = \omega_{T}$\;}					
+				} 
+					\caption{The \emph{Stochastic Gradient Descent} Optimizer}
+				\end{algorithm}
+		\end{minipage}
+		};
+		\node[fancytitle, rounded corners, right=10pt] at (box.north west) {\faLaptop};
+		%\node[fancytitle, rounded corners] at (box.east) {$\clubsuit$};
+		\end{tikzpicture} 	
+\end{slide}
+%%
+%=================================================================
+\begin{note}
+	TBA
+\end{note}
+%%
+%=================================================================
+
+
+\section{Theoretical Analysis}
+
+\section{Experiment Results}
+
+%=================================================================
+%%  
+\begin{slide}%[toc=,bm=]
+    {Privacy by K-Anonymous}
+    \twotonebox{\faHandORight}{\parbox{.96\textwidth}
+        {
+            \begin{description}
+                \item[K-Anonymity] 
+                $4$-anonymity + $6$-anonymity $\nRightarrow$ $k$-anonymity, for any $k$
+                \item[Task]
+                \emph{Alex} is $28$ and he visited both hospitals
+            \end{description}
+        }
+    }
+    \onslide*{1-}{
+        \centering \hfill \vspace*{1\baselineskip}
+        
+        \twocolumn[
+        lcolwidth=0.5\linewidth,
+        rcolwidth=0.5\linewidth
+        ]
+        {
+            \begin{table}
+                \fontsize{10pt}{10pt}\selectfont
+                \setlength{\abovecaptionskip}{0pt}
+                \setlength{\belowcaptionskip}{12pt}
+                \centering
+                \caption{Hospital A}
+                \begin{tabular}{c|c|c|c}	
+                    \toprule	
+                    Zip  	&  	\textbf{Age}& 	\textbf{Nationality} 	& 	\textbf{Disease} 	\\
+                    \midrule
+
+\onslide*{2-}{\textcolor{orange}{130**}}\onslide*{1}{130**}
+&   \onslide*{2-}{\textcolor{orange}{<30}}\onslide*{1}{<30}               
+&   \onslide*{2-}{\textcolor{orange}{*}}\onslide*{1}{*}               
+&   \onslide*{2-}{\textcolor{orange}{\rnode{d1}{AIDS}}}\onslide*{1}{AIDS}             
+ \\
+                    130** & <30 & * & Heart Disease \\
+                    130** & <30 & * & Viral Infection \\
+                    130** & <30 & * & Viral Infection \\
+                    
+                    \midrule
+
+                    130** & 3*  & * & Cancer \\
+                    130** & 3*  & * & Cancer \\
+                    130** & 3*  & * & Cancer \\
+                    130** & 3*  & * & Cancer \\
+                    
+                    \midrule
+                    
+                    130** & $\geq 40$ & * & Cancer \\
+                    130** & $\geq 40$ & * & Heart Disease \\
+                    130** & $\geq 40$ & * & Viral Infection \\
+                    130** & $\geq 40$ & * & Viral Infection \\
+        							
+                    \bottomrule
+                    
+                \end{tabular}
+            \end{table}
+        } % left pane
+        {	
+            \begin{table}
+    \fontsize{10pt}{10pt}\selectfont
+    \setlength{\abovecaptionskip}{0pt}
+    \setlength{\belowcaptionskip}{12pt}
+    \centering
+    \caption{Hospital B}
+    \begin{tabular}{c|c|c|c}	
+        \toprule	
+        Zip  	&  	\textbf{Age}& 	\textbf{Nationality} 	& 	\textbf{Disease} 	\\
+        \midrule
+        
+\onslide*{2-}{\textcolor{orange}{\rnode{d2}{130**}}}\onslide*{1}{{130**} }
+&   \onslide*{2-}{\textcolor{orange}{<35}}\onslide*{1}{<35}               
+&   \onslide*{2-}{\textcolor{orange}{*}}\onslide*{1}{*}               
+&   \onslide*{2-}{\textcolor{orange}{AIDS}}\onslide*{1}{AIDS}               
+\\
+        130** & <35 & * & Tuberculosis \\
+        130** & <35 & * & Flu \\
+        130** & <35 & * & Tuberculosis \\
+        130** & <35 & * & Cancer \\
+        130** & <35 & * & AIDS \\
+        
+        \midrule
+        
+        130** & $\geq 35$ & * & Cancer \\
+        130** & $\geq 35$ & * & Cancer \\
+        130** & $\geq 35$ & * & Cancer \\
+        130** & $\geq 35$ & * & Tuberculosis \\
+        130** & $\geq 35$ & * & Viral Infection \\
+        130** & $\geq 35$ & * & Viral Infection \\
+        
+        \bottomrule
+        
+    \end{tabular}
+\end{table}
+
+			 \onslide*{3}{
+    \psset{arrowscale=2,arrows=->}
+    \nccurve[linecolor=red,angleA=0,angleB=160]{d1}{d2} 
+}
+      } % right pane	
+    } % slides
+\end{slide}
+%%  
+%=================================================================
+
+
+\section{Conclusion}
+
+%=================================================================
+%%  
+\begin{slide}%[toc=,bm=]
+{\textsc{TULIP-Lab} Practise of Academic Writing }
+
+    \smartdiagramset{description title width=2.2cm,
+        description text width=12cm,
+        %     module minimum height=.6cm
+    }
+    
+    \centering
+    
+    \smartdiagram[priority descriptive diagram]{
+        \faGithubAlt { } Git \emph{Private} Repository:  
+        			\texttt{code} - \texttt{data} - \texttt{report},
+        \faSlideshare { } Slides: Presentation \& Discussion,
+        \faLaptop { } Empirical Design and \emph{Launch} the Research,
+        \faPencilSquareO { } Full Report \emph{Writing},
+        \faCheckSquareO { } Plagiarism \emph{Checking},
+        \faSendO { } \emph{Submission}: \num{2} weeks prior to deadline
+    } % Smart Diagram
+
+\end{slide}
+%%
+%=================================================================
+\begin{note}
+	TBA
+\end{note}
+%%
+%=================================================================
+

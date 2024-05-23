@@ -1,0 +1,59 @@
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% title
+%%% TODO: Customize to your Own Title, Name, Address
+%%%
+\title{
+%\textsc{\small{Fundamentals of Learning and Information Processing}}
+%\\ \textsc{\Large{Session \sessionNumber: \sessionTitle}}}
+\textsc{\Large{\sessionTitle}}}
+\author{%Multi authors
+    \parbox{4cm}{%
+        \centering 
+        \begin{tikzpicture}
+            \clip (0,0) circle (.066\textwidth); %2cm
+            \node[anchor=center] at (0,0) %(0.62,-3) 
+            {\includegraphics[width=0.136\textwidth]{./graphics/tulip/gangli.eps}};
+        \end{tikzpicture}
+       \\ \centering Gang Li %\\CSRI, SIT
+    } %parbox
+%    \hspace{1cm}
+%    \parbox{4cm}{%
+%        \centering 
+%        \begin{tikzpicture}
+%            \clip (0,0) circle (.066\textwidth); %2cm
+%            \node[anchor=center] at (0,0) %(0.62,-3) 
+%            {\includegraphics[width=0.136\textwidth]{figures/tulip/gangli.eps}};
+%        \end{tikzpicture}
+%       \\ \centering Gang Li %\\CSRI, SIT
+%    } %parbox
+%\vspace{.25cm}
+%\\Center for Cyber Security Research and Innovation
+\vspace{.25cm}
+\\Deakin University, Australia
+% \and % more authors
+}
+\date{\gitCommitterDate}
+
+
+% Customize the setting of slides
+\pdsetup{
+% TODO: Customize the left footer, and right footer
+%lf=\href{http://www.tulip.org.au}{\copyright 2015 \textsc{TULIP Lab (G. Li)}},
+cf={\textsc{TULIP Lab: \sessionTitle}},
+rf=\href{http://www.tulip.org.au}{
+%Last Changed by: \textsc{\gitCommitterName}\ 
+\gitVtagn-\gitAbbrevHash\ (\gitAuthorDate)
+},
+%trans=Fade,
+list={labelsep=1em,leftmargin=*,itemsep=0pt,topsep=5pt,parsep=0pt},
+}
+
+\hypersetup{
+  pdftitle={\sessionTitle},
+  pdfauthor={Gang Li},
+  pdfpagemode={FullScreen},
+  pdfborder={0 0 0}
+}
+

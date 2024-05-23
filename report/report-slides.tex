@@ -1,0 +1,84 @@
+% ---------------------------------------------------------------
+% Copyright (C) 2014-2021 Gang Li
+% ---------------------------------------------------------------
+%
+%
+% 
+% run csh go.sh
+% Document Class
+\documentclass[
+ rgb,
+ size=14pt,
+ paper=smartboard, %a4paper, smartboard, screen
+ mode=present, %present, handout, print
+% mode=handout, %present, handout, print
+ display=slides, % slidesnotes, notes, slides
+ style=tuliplab,  % TULIP Lab style
+ pauseslide,
+ fleqn,leqno]{powerdot}
+
+%=================================================================
+\input{tex/mod-preamble}
+% \input{preamble}
+%=================================================================
+
+
+%=================================================================
+%
+%\newcommand{\sessionNumber}{31}
+\newcommand{\sessionTitle}{My Presentation Title}
+\input{tex/mod-title}
+%=================================================================
+
+
+% Starts the document
+\begin{document}
+
+\maketitle 
+
+%=================================================================
+%%
+\begin{slide}[toc=,bm=]{Table of Content}
+ \tableofcontents[type=1,content=futuresections]
+%  \tableofcontents[content=sections]
+\end{slide}
+%%
+%=================================================================
+
+
+\input{tex/mod-slides}
+
+
+\section{References}
+
+%=================================================================
+%%  
+\begin{slide}[toc=,bm=]
+	{References}
+\bibliographystyle{alpha}
+\footnotesize
+\bibliography{tuliplab}
+\end{slide}
+%%
+%=================================================================
+\begin{note}
+	TBA
+\end{note}
+%%
+%=================================================================
+
+
+%TODO: GLi HERE
+
+%%==========================================================================================
+%  Question & Contact Page
+%
+\input{tex/mod-contact}
+%
+%%==========================================================================================
+
+\end{document}
+
+\endinput
+ 
+ 
